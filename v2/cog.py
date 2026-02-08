@@ -31,7 +31,7 @@ class Leaderboard(commands.Cog):
         entries = []
         for i, player in enumerate(players):
             user = self.bot.get_user(player.discord_id) or await self.bot.fetch_user(player.discord_id)
-            entries.append((f"{i + 1}. {user.name}", f"{settings.collectible_name}: {getattr(player, 'ball_count', 0)}"))
+            entries.append((f"{i + 1}. {user.name}", f"{settings.plural_collectible_name}: {getattr(player, 'ball_count', 0)}"))
 
         source = FieldPageSource(entries, per_page=5, inline=False)
         source.embed.title = "top 10 players"
